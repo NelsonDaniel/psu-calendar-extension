@@ -5,18 +5,20 @@
     </head>
     <body>
         <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBEjFaAOVJSET2jWmNUxoNtHQeTc6DFUR0&libraries=places"></script>
-        <a href='linkhref.html' id='mylink'>click me</a>
+        
+        
+        <a href='linkhref.html' onclick="reload()" id='mylink'>Click Me First</a>
         <script type="text/javascript">
         var myLink = document.getElementById('mylink');
-
         myLink.onclick = function(){
             var script = document.createElement("script");
             script.type = "text/javascript";
             script.src = "app.js"; 
             document.getElementsByTagName("head")[0].appendChild(script);
             return false;
-        }
+        };
         </script>
+        <input type = "button" onclick = "reload()" value = "See Results">    
         <div id="alert" class="" role="alert"></div>
     </body>
 </html>

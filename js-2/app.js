@@ -39,6 +39,7 @@ function get_maps_object_walking(string1, string2, cb){
             directionsDisplay.setDirections(response);
             cb(null, response.routes[0].legs[0])
             window.walk_mins = parseInt(point.duration.text.split(' ')[0]);
+            console.log()
             console.log(point);
         }
         else {
@@ -97,22 +98,23 @@ function get_maps_object_bus(string1, string2, cb){
         
 };
 
-if(window.bus_mins >= 15 && window.walk_mins >= 15){
-    document.getElementById("alert").className = "alert alert-danger";
-    var min = Math.min(window.bus_mins, window.walk_mins) - 15;
-    console.log("1st");
-    document.getElementById("alert").innerHTML = "You'll be late for class by atleast " + min.toString() + " minutes!";
-}else if(window.bus_mins < 15 && window.walk_min < 15){
-    document.getElementById("alert").className = "alert alert-success";
-    console.log("2nt");
-    document.getElementById("alert").innerHTML = "You can walk or take the bus!\nBus Instructions: " + window.inst + " at " + window.dep;  
-}else if(window.bus_mins < 15 && window.walk_min > 15){
-    document.getElementById("alert").className = "alert alert-warning";
-    console.log("3rd");
-    document.getElementById("alert").innerHTML = "You can take the bus!\nBus Instructions: " + window.inst + " at " + window.dep;  
+function reload(){
+    if(window.bus_mins >= 15 && window.walk_mins >= 15){
+        document.getElementById("alert").className = "alert alert-danger";
+        var min = Math.min(window.bus_mins, window.walk_mins) - 15;
+        console.log("1st");
+        document.getElementById("alert").innerHTML = "You'll be late for class by atleast " + min.toString() + " minutes!";
+    }else if(window.bus_mins < 15 && window.walk_mins < 15){
+        document.getElementById("alert").className = "alert alert-success";
+        console.log("2nd");
+        document.getElementById("alert").innerHTML = "You can walk or take the bus!\nBus Instructions: " + window.inst + " at " + window.dep;  
+    }else if(window.bus_mins < 15 && window.walk_mins > 15){
+        document.getElementById("alert").className = "alert alert-warning";
+        console.log("3rd");
+        document.getElementById("alert").innerHTML = "You can take the bus!\nBus Instructions: " + window.inst + " at " + window.dep;  
+    }
 }
 
-var map_object1;
 get_maps_object_walking(string1, string2, function (err, map_object) {
     if (!err) {  
         window.map_object_walk = map_object;
