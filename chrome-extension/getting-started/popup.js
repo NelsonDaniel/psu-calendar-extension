@@ -87,6 +87,14 @@ function setPageBackgroundColor() {
 
   });
 
+  function getTripInfo(a_link, b_link, b_start_time) {
+    const mockData = [
+      {bus:'5 mins', walk: '10 mins'},
+      {bus:'10 mins', walk: '20 mins'}    
+    ]
+
+    return mockData[Math.random() * mockData.length];
+  }
 
   function parseTimeDetails(details) {
     const location_a = details.getElementsByTagName('a')[0];
