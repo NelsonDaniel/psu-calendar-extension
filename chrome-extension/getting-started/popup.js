@@ -62,28 +62,25 @@ function setPageBackgroundColor() {
       }
     });
 
-    let newTable = [];
-    let tbody = document.createElement('tbody');
+
+    // New Table
   
+    const newTable = [];
 
-
+    // Modify Course Info
     for (let i = 0; i < courseInfo.length; i++) {
       console.log(courseInfo[i].parsed);
     }
 
+    const table = document.getElementsByClassName('css-oeyc9i-blockCss')[0];
+    
+    table.appendChild(tbl_hdr[0]);
 
-    // let table = document.createElement('table');
-    // table.appendChild(tbl_hdr[0]);
 
-    // // Sort Cources by date/time
-    // // TODO
-
-    // // Insert sorted cources in table
-    // for (let i = 0; i < courses.length; i++) {
-    //   table.appendChild(courses[i]);
-    // }
-
-    // document.body.appendChild(table);
+    // Insert sorted cources in table
+    for (let i = 0; i < courseInfo.length; i++) {
+      table.appendChild(courseInfo[i].div);
+    }
 
   });
 
