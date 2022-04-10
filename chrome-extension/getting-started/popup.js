@@ -78,19 +78,23 @@ function setPageBackgroundColor() {
 
 
     // Insert sorted cources in table
-    for (let i = 0; i < courseInfo.length; i++) {
-      table.appendChild(courseInfo[i].div);
+    for (let i = 0; i < courseInfo.length-1; i++) {
+      const first = courseInfo[i];
+      const second = courseInfo[i+1];
+      table.appendChild(first.div);
+      const div = document.createElement('tbody');
+      div.style.width = '100%'
+      div.style.display = 'table'
+      div.className = 'css-1c24da2-groupCss'
+      div.innerHTML = `${getTripInfo(first.parsed.location_link, second.parsed.location_link, second.parsed.start_time)}`
+      table.appendChild(div);
+      table.appendChild(second.div)
     }
-
   });
 
   function getTripInfo(a_link, b_link, b_start_time) {
-    const mockData = [
-      {bus:'5 mins', walk: '10 mins'},
-      {bus:'10 mins', walk: '20 mins'}    
-    ]
 
-    return mockData[Math.random() * mockData.length];
+    return `bus: 20 mins, walk: 5 mins`;
   }
 
   function parseTimeDetails(details) {
