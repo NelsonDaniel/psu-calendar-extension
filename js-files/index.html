@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
     <body>
         <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBEjFaAOVJSET2jWmNUxoNtHQeTc6DFUR0&libraries=places"></script>
         <a href='linkhref.html' id='mylink'>click me</a>
@@ -7,12 +10,6 @@
         var myLink = document.getElementById('mylink');
 
         myLink.onclick = function(){
-            // if (isNaN(document.getElementById("number").value)){
-            //     error.textContent = "Too long commute time"
-            //     error.style.color = "red"
-            // }else{
-            //     error.textContent = ""
-            // }
             var script = document.createElement("script");
             script.type = "text/javascript";
             script.src = "app.js"; 
@@ -20,6 +17,6 @@
             return false;
         }
         </script>
-        
+        <div id="alert" class="" role="alert"></div>
     </body>
 </html>
