@@ -14,8 +14,8 @@ orig_lng = arr[5].split(",")[1]
 dest_lat = arr2[5].split(",")[0]
 dest_lng = arr2[5].split(",")[1]
 
-orig_coord = "40.8004449,-77.8605032"
-dest_coord = "40.7913296,-77.8698712"
+orig_coord = "{0},{1}".format(orig_lat, orig_lng)
+dest_coord = "{0},{1}".format(dest_lat, dest_lng)
 url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins={0}&destinations={1}&units=imperial&key=AIzaSyBuO04v4aMRoAc-Isu1NTARjgHbwvcFtnk".format(orig_coord, dest_coord)
 
 payload={}
