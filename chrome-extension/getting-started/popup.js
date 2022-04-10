@@ -62,31 +62,40 @@ function setPageBackgroundColor() {
       }
     });
 
-    let newTable = [];
-    let tbody = document.createElement('tbody');
+
+    // New Table
   
+    const newTable = [];
 
-
+    // Modify Course Info
     for (let i = 0; i < courseInfo.length; i++) {
       console.log(courseInfo[i].parsed);
     }
 
+    const table = document.getElementsByClassName('css-oeyc9i-blockCss')[0];
+    
+    table.appendChild(tbl_hdr[0]);
 
-    // let table = document.createElement('table');
-    // table.appendChild(tbl_hdr[0]);
 
-    // // Sort Cources by date/time
-    // // TODO
-
-    // // Insert sorted cources in table
-    // for (let i = 0; i < courses.length; i++) {
-    //   table.appendChild(courses[i]);
-    // }
-
-    // document.body.appendChild(table);
-
+    // Insert sorted cources in table
+    for (let i = 0; i < courseInfo.length-1; i++) {
+      const first = courseInfo[i];
+      const second = courseInfo[i+1];
+      table.appendChild(first.div);
+      const div = document.createElement('tbody');
+      div.style.width = '100%'
+      div.style.display = 'table'
+      div.className = 'css-1c24da2-groupCss'
+      div.innerHTML = `${getTripInfo(first.parsed.location_link, second.parsed.location_link, second.parsed.start_time)}`
+      table.appendChild(div);
+      table.appendChild(second.div)
+    }
   });
 
+  function getTripInfo(a_link, b_link, b_start_time) {
+
+    return `bus: 20 mins, walk: 5 mins`;
+  }
 
   function parseTimeDetails(details) {
     const location_a = details.getElementsByTagName('a')[0];
