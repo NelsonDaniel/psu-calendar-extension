@@ -19,6 +19,12 @@ changeColor.addEventListener("click", async () => {
 // current page
 function setPageBackgroundColor() {
   chrome.storage.sync.get("color", ({ color }) => {
-    document.body.style.backgroundColor = color;
+    var all_divs = document.getElementsByTagName('tbody');
+    for (var i = 0; i < all_divs.length; i++) {
+        var div = all_divs[i];
+        if (div.className.match(/^css-[a-z0-9]+-groupCss/)){
+            console.log(div);
+        }
+    }
   });
 }
