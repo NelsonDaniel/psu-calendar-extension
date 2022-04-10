@@ -2,6 +2,24 @@
 <html>
     <body>
         <script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBEjFaAOVJSET2jWmNUxoNtHQeTc6DFUR0&libraries=places"></script>
-        <script src="app.js"></script>
+        <a href='linkhref.html' id='mylink'>click me</a>
+        <script type="text/javascript">
+        var myLink = document.getElementById('mylink');
+
+        myLink.onclick = function(){
+            // if (isNaN(document.getElementById("number").value)){
+            //     error.textContent = "Too long commute time"
+            //     error.style.color = "red"
+            // }else{
+            //     error.textContent = ""
+            // }
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "app.js"; 
+            document.getElementsByTagName("head")[0].appendChild(script);
+            return false;
+        }
+        </script>
+        
     </body>
 </html>
